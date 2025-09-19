@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+    {% include 'includes/nav.html' %}
+    <div class="container mb-12">
+
+        <div class="row">
+
+
+            <div class="card p-5">
+                <h1 class="card-header mb-3">{{ status }}</h1>
+                <hr>
+                {% if order_id %}
+                <h1 class="card-header mb-3">Note this order id or take screen shot: <span class="bg-danger rounded p-1">{{ order_id }}</span></h1>
+                {% endif %}
+                <div class="card-body">
+                    <a href="{% url 'products' %}" class="btn btn-primary">continue Shopping</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-12">
+    <div class="container mb-12">
+
+        <div class="row">
+
+
+            <div class="card p-5">
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+{% endblock %}

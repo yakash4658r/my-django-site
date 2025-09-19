@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+<style>
+    #rzp-button1 {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff;
+        font-weight: 600;
+        padding: 12px 25px;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    #rzp-button1:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+</style>
+    {% include 'includes/nav.html' %}
+    <div class="container">
+
+        <div class="">
+
+
+            <div class="card p-5">
+                <h5 class="card-header mb-3">Products</h5>
+                <div class="card-body">
+                    {% for product,qty in products.items %}
+                        <h5 class="card-title ">{{ product.name }}</h5>
+                        <p class="card-text mb-3 fs-1">Quantity: {{ qty }}</p>
+                    {% endfor %}
+                    <a href="{% url 'products' %}" class="btn btn-primary mb-3">Continue Shopping</a>
+                    <h5 class="card-title  total_amount">Total amount with shipping charge: <span
+                            class="">&#8377;{{ cart.total|add:100 }}</span></h5>
+                </div>
+            </div>
+
+            <div class="card p-5">
+                <h5 class="card-header mb-2">Address</h5>
+                <div class="card-body">
+                    <h5 class="card-title p-2">First Name: {{ order.address.first_name }}</h5>
+                    <h5 class="card-title p-2">last Name: {{ order.address.last_name }}</h5>
+                    <h5 class="card-title p-2">Address: {{ order.address.address }}</h5>
+                    <h5 class="card-title p-2">City: {{ order.address.city }}</h5>
+                    <h5 class="card-title p-2">State: {{ order.address.state }}</h5>
+                    <h5 class="card-title p-2">PinCode: {{ order.address.pin_code }}</h5>
+                    <h5 class="card-title p-2">Country: {{ order.address.country }}</h5>
+                    <h5 class="card-title p-2">Phone NO: {{ order.address.phone_no }}</h5>
+                    <h5 class="card-title p-2">Email id: {{ order.address.email }}</h5>
+                    <a href="{% url 'update_address' order.pk order.address.pk %}" class="btn btn-primary m-3">Update Address</a>
+                </div>
+                <button id="rzp-button1" class="btn btn-primary">Pay with Razorpay</button>
+            </div>
+
+
+        </div>
+    </div>
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+    document.getElementById("rzp-button1").addEventListener("click", async function (e) {
+        e.preventDefault();
+
+        let response = await fetch("{% url 'proccess_order' order.pk %}", {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}", // Only if CSRF is required
+                "Content-Type": "application/json"
+            }
+        });
+
+        let data = await response.json();
+
+        var options = {
+            "key": data.razorpay_key_id,
+            "amount": data.amount,
+            "currency": "INR",
+            "name": "Elben creatives",
+            "description": "Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": data.order_id,
+            "callback_url": data.callback_url,
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+
+        var rzp1 = new Razorpay(options);
+
+        rzp1.on('payment.failed', function (response) {
+            alert("Payment failed: " + response.error.description);
+        });
+
+        rzp1.open();
+    });
+</script>
+
+
+{% endblock %}

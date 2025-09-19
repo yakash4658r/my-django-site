@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% include 'includes/nav.html' %}
+    <div class="container">
+
+        <div class="">
+
+
+            <div class="card p-5">
+                <h5 class="card-header mb-3">Products</h5>
+                <div class="card-body">
+
+                    {% for product in products %}
+                        <hr>
+                        <h5 class="card-title ">{{ product.product_name }} -- ( {{ product.product_size }} )</h5>
+                        <h6 class="card-text mt-2  mb-3 fs-1">Quantity: {{ product.product_qty }}</h6>
+                        <hr>
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            <div class="card p-5">
+                <h5 class="card-header mb-2">Address</h5>
+                <div class="card-body">
+                    <h5 class="card-title p-2 mb-2"><span
+                            class="bg-danger rounded-lg p-2 text-white ">First Name:</span> {{ order.address.first_name }}
+                    </h5>
+                    <h5 class="card-title p-2 mb-2"><span
+                            class="bg-danger rounded-lg p-2 text-white">last Name:</span> {{ order.address.last_name }}
+                    </h5>
+                    <h5 class="card-title p-2 mb-2"><span
+                            class="bg-danger rounded-lg p-2 text-white">Address:</span> {{ order.address.address }}</h5>
+                    <h5 class="card-title p-2 mb-2"><span
+                            class="bg-danger rounded-lg p-2 text-white">City:</span> {{ order.address.city }}</h5>
+                    <h5 class="card-title p-2 mb-2"><span
+                            class="bg-danger rounded-lg p-2 text-white">State:</span> {{ order.address.state }}</h5>
+                    <h5 class="card-title p-2 mb-2"><span
+                            class="bg-danger rounded-lg p-2 text-white">PinCode:</span> {{ order.address.pin_code }}
+                    </h5>
+                    <h5 class="card-title p-2 mb-2"><span
+                            class="bg-danger rounded-lg p-2 text-white">Country:</span> {{ order.address.country }}</h5>
+                    <h5 class="card-title p-2 mb-2"><span
+                            class="bg-danger rounded-lg p-2 text-white">Phone NO:</span> {{ order.address.phone_no }}
+                    </h5>
+                    <h5 class="card-title p-2 mb-2"><span
+                            class="bg-danger rounded-lg p-2 text-white">Email id:</span> {{ order.address.email }}</h5>
+                </div>
+            </div>
+
+            {% if request.user.is_superuser %}
+                <a href="{% url 'update_shipped' order.id %}" class="btn btn-primary">Shipped</a>
+            {% endif %}
+
+        </div>
+    </div>
+
+
+{% endblock %}

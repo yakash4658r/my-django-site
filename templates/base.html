@@ -1,0 +1,313 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elben Creatives</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="keywords" content="HTML5 Template">
+    <meta name="description" content="Elben Creatives">
+    <meta name="author" content="p-themes">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'own_img/faicon.jpeg' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'own_img/faicon.jpeg' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'own_img/faicon.jpeg' %}">
+    <link rel="manifest" href="{% static 'own_img/faicon.jpeg' %}">
+    <link rel="mask-icon" href="{% static 'own_img/faicon.jpeg' %}" color="#666666">
+    <link rel="shortcut icon" href="{% static 'own_img/faicon.jpeg' %}">
+    <meta name="apple-mobile-web-app-title" content="Elben Creatives">
+    <meta name="application-name" content="Elben Creatives">
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="assets/images/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'assets/css/plugins/owl-carousel/owl.carousel.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/jquery.countdown.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/magnific-popup/magnific-popup.css' %}">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/skins/skin-demo-24.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/demos/demo-24.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/own_style.css' %}">
+
+    <!-- tailwind link -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+            integrity="sha512-y0cR6L0jz7M9Y7pKs1hIP+TmLZj/7KxVLOu3sA7T8Xmw5HzLlR2kYgshf5cJX+V0qgFZj0b7qCE+kwfIR48sfA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+    />
+
+
+    {% block head %}
+
+    {% endblock %}
+</head>
+<body>
+
+
+{% block content %}
+
+{% endblock %}
+
+<footer class="footer">
+
+
+    <div class="footer-middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+
+
+                    <div class="widget widget-about">
+                        <img src="{% static 'own_img/footer_logo.jpeg' %}" class="footer-logo"
+                             alt="Footer Logo"
+                             width="110" height="25">
+                        <p>Founded with a passion for creativity and craftsmanship, Elben Creatives is your
+                            one-stop destination for premium photo frames, wall art, and home decor accessories.
+                            We believe that a beautiful home reflects the stories,
+                            memories, and personality of the people who live in it. That’s why we craft products
+                            that not only enhance your interiors but also add meaning to your moments.
+
+                        </p>
+
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" title="Facebook" target="_blank"><i
+                                    class="icon-facebook-f"></i></a>
+                            <a href="#" class="social-icon" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a>
+                            <a href="#" class="social-icon" title="Instagram" target="_blank"><i
+                                    class="icon-instagram"></i></a>
+                            <a href="#" class="social-icon" title="Youtube" target="_blank"><i
+                                    class="icon-youtube"></i></a>
+                            <a href="#" class="social-icon" title="Pinterest" target="_blank"><i
+                                    class="icon-pinterest"></i></a>
+                        </div>
+                        <!-- End .soial-icons -->
+                    </div>
+                    <!-- End .widget about-widget -->
+                </div>
+                <!-- End .col-sm-12 col-lg-3 -->
+
+                <div class="col-lg-6 col-sm-4 col-md-4">
+                    <div class="widget">
+                        <h4 class="widget-title">useful links</h4>
+                        <!-- End .widget-title -->
+
+                        <ul class="widget-list">
+
+                            <li class="">
+                                <a href="{% url 'home' %}" class="">Home</a>
+                                <!-- End .megamenu -->
+                            </li>
+
+                            <li>
+                                <a href="{% url 'products' %}" class="">Shop</a>
+                                <!-- End .megamenu megamenu-md -->
+
+
+                            </li>
+
+                            <li>
+                                <a href="{% url 'about' %}" class="">About</a>
+                            </li>
+
+                            <li>
+                                <a href="{% url 'contact' %}" class="">Contact</a>
+                            </li>
+
+                            <li>
+                                <a href="{% url 'terms' %}" class="">Terms & Conditions</a>
+                            </li>
+
+
+                        </ul>
+                        <!-- End .widget-list -->
+                    </div>
+                    <!-- End .widget -->
+                </div>
+                <!-- End .col-sm-4 col-lg-3 -->
+
+
+                <!-- End .col-sm-4 col-lg-3 -->
+
+
+                <!-- End .col-sm-64 col-lg-3 -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- End .container -->
+
+    <!-- End .footer-bottom -->
+</footer>
+</div>
+
+<button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+<div class="mobile-menu-overlay">
+</div>
+<!-- End .mobil-menu-overlay -->
+<div class="mobile-menu-container mobile-menu-light">
+    <div class="mobile-menu-wrapper">
+        <span class="mobile-menu-close"><i class="icon-close"></i></span>
+
+
+        <nav class="mobile-nav">
+            <ul class="mobile-menu">
+                <li class="active">
+                    <a href="{% url 'home' %}">HOME</a>
+
+
+                </li>
+                <li>
+                    <a href="{% url 'products' %}">SHOP</a>
+
+                    <ul>
+                        <li><a href="{% url 'products' 'english_quote' %}">English Quote</a></li>
+                        <li><a href="{% url 'products' 'tamil_quote' %}">Tamil Quote</a></li>
+
+                    </ul>
+
+
+                </li>
+                <li>
+                    <a href="{% url 'about' %}">ABOUT US</a>
+                </li>
+
+                <li><a href="tel:+919444424338"><i class="icon-phone"></i>Call: +91 9444424338</a></li>
+
+
+                <li>
+                    <a href="{% url 'contact' %}">CONTACTS</a>
+                </li>
+
+                {% if request.user.is_superuser %}
+                    <li>
+                        <a href="{% url 'orders' %}" class="">Orders</a>
+                    </li>
+                {% elif request.user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'your_orders' %}" class="">Your Orders</a>
+                    </li>
+                {% endif %}
+
+                {% if request.user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'account_logout' %}" id="bg-red-rounded">Logout</a>
+                    </li>
+
+                {% else %}
+                    <li>
+                        <a href="{% url 'account_login' %}" id="bg-green-rounded">Login</a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'account_signup' %}" id="bg-green-rounded">Signup</a>
+                    </li>
+
+                {% endif %}
+
+
+            </ul>
+        </nav>
+        <!-- End .mobile-nav -->
+
+        <div class="social-icons">
+            <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+            <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
+            <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+            <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+        </div>
+        <!-- End .social-icons -->
+    </div>
+    <!-- End .mobile-menu-wrapper -->
+</div>
+<!-- End .mobile-menu-container -->
+
+
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.hoverIntent.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'assets/js/superfish.min.js' %}"></script>
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap-input-spinner.js' %}"></script>
+<script src="{% static 'assets/js/jquery.plugin.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+<!-- Main JS File -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+<script src="{% static 'assets/js/demos/demo-24.js' %}"></script>
+
+<script>
+    $(document).on("click", ".delete_cart", function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "{% url 'delete_cart' %}",
+            data: {
+                product_id: $(this).attr("id"),
+                csrfmiddlewaretoken: "{{ csrf_token }}",
+                action: "post",
+            },
+
+            success: function (json) {
+                location.reload()
+            },
+
+            error: function (xhr, errmsg, err) {
+                console.log("Error:", xhr.status, err);
+
+            }
+        })
+
+    })
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () {
+            const messageContainer = document.getElementById("message-container");
+            if (messageContainer) {
+                messageContainer.style.transition = "opacity 0.5s ease";
+                messageContainer.style.opacity = 0;
+                setTimeout(() => messageContainer.remove(), 500);  // Fully remove from DOM after fade
+            }
+        }, 2000);
+    });
+</script>
+
+<script>
+    setTimeout(() => {
+        const msg = document.getElementById("message-container");
+        if (msg) {
+            msg.classList.add("opacity-0");
+            setTimeout(() => msg.remove(), 500);
+        }
+    }, 2000);
+</script>
+
+
+</body>
+</html>

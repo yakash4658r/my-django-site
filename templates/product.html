@@ -1,0 +1,462 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- displays site properly based on user's device -->
+
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="{% static 'own_img/faicon.jpeg' %}"
+    />
+
+    <title>Elben Creatives</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'main.css' %}"/>
+    <script src="{% static 'main.js' %}" defer></script>
+    <script src="{% static 'slider.js' %}" defer></script>
+    <script src="{% static 'cart.js' %}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <nav class="navbar">
+            <section class="nav-first">
+                <svg
+                        class="menu-icon"
+                        width="16"
+                        height="15"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                            d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z"
+                            fill="#69707D"
+                            fill-rule="evenodd"
+                    />
+                </svg>
+
+                <div class="logo">
+                    <img src="{% static 'assets/images/demos/demo-24/logo.png' %}" alt="sneakers logo"/>
+                </div>
+                <div class="backdrop"></div>
+                <div class="nav-links">
+                    <svg
+                            class="close-icon"
+                            width="14"
+                            height="15"
+                            xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                                d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+                                fill="#69707D"
+                                fill-rule="evenodd"
+                        />
+
+                    </svg>
+
+                    <a href="{% url 'home' %}">Home</a>
+                    <a href="{% url 'products' %}">Shop</a>
+                    <a href="{% url 'about' %}">About</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                    <a href="tel:+919444424338">Call: +91 9444424338</a>
+                </div>
+            </section>
+
+            <section class="nav-second" style="margin-right: 20px">
+                <div class="cart ">
+                    <a href="{% url 'cart_summary' %}">
+                        <img
+                                class="cart-icon"
+                                src="{% static 'images/icon-cart.svg' %}"
+                                alt="cart icon"
+                        />
+
+                        <div class="cart-count">
+                            <span class="qty">{{ cart | length }}</span>
+                        </div>
+                    </a>
+                </div>
+
+            </section>
+        </nav>
+    </header>
+
+    <section class="main">
+        <div class="default gallery">
+            <div class="main-img">
+                <img
+                        class="active"
+                        src="{{ product.image_1.url }}"
+                        alt="product-img"
+                />
+
+                {% if product.image_2 %}
+                    <img src="{{ product.image_2.url }}" alt="product-img"/>
+                {% endif %}
+                {% if product.image_3 %}
+                    <img src="{{ product.image_3.url }}" alt="product-img"/>
+                {% endif %}
+                {% if product.image_4 %}
+                    <img src="{{ product.image_4.url }}" alt="product-img"/>
+                {% endif %}
+
+
+            </div>
+
+            <div class="thumb-list">
+
+                <div class="active">
+                    <img
+                            src="{{ product.image_1.url }}"
+                            alt="product-img"
+                    />
+                </div>
+                {% if product.image_2 %}
+                    <div>
+                        <img
+                                src="{{ product.image_2.url }}"
+                                alt="product-img"
+                        />
+                    </div>
+                {% endif %}
+                {% if product.image_3 %}
+                    <div>
+                        <img
+                                src="{{ product.image_3.url }}"
+                                alt="product-img"
+                        />
+                    </div>
+                {% endif %}
+                {% if product.image_4 %}
+                    <div>
+                        <img
+                                src="{{ product.image_4.url }}"
+                                alt="product-img"
+                        />
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+
+        <div class="lightbox pc">
+            <div id="open_box">
+                <div class="gallery">
+
+
+                    <div class="main-img">
+
+
+                        <button class="icon-close close_btn">
+                            <i class="fa-solid fa-circle">close</i>
+                        </button>
+                        <!-- icons -->
+
+                        <span class="icon-prev">
+                <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                          d="M11 1 3 9l8 8"
+                          stroke="#1D2026"
+                          stroke-width="3"
+                          fill="none"
+                          fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+                        <span class="icon-next">
+                <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                          d="m2 1 8 8-8 8"
+                          stroke="#1D2026"
+                          stroke-width="3"
+                          fill="none"
+                          fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+
+                        <!-- main images -->
+                        <img
+                                class="active"
+                                src="{{ product.image_1.url }}"
+                                alt="product-img"
+                        />
+
+
+                        {% if product.image_2 %}
+                            <img src="{{ product.image_2.url }}" alt="product-img"/>
+                        {% endif %}
+                        {% if product.image_3 %}
+                            <img src="{{ product.image_3.url }}" alt="product-img"/>
+                        {% endif %}
+                        {% if product.image_4 %}
+                            <img src="{{ product.image_4.url }}" alt="product-img"/>
+                        {% endif %}
+                    </div>
+
+
+                    <div class="thumb-list">
+                        <div class="active">
+                            <img
+                                    src="{{ product.image_1.url }}"
+                                    alt="product-img"
+                            />
+                        </div>
+                        {% if product.image_2 %}
+                            <div>
+                                <img
+                                        src="{{ product.image_2.url }}"
+                                        alt="product-img"
+                                />
+                            </div>
+                        {% endif %}
+                        {% if  product.image_3 %}
+                            <div>
+                                <img
+                                        src="{{ product.image_3.url }}"
+                                        alt="product-img"
+                                />
+                            </div>
+                        {% endif %}
+                        {% if  product.image_4 %}
+                            <div>
+                                <img
+                                        src="{{ product.image_4.url }}"
+                                        alt="product-img"
+                                />
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="lightbox mobile">
+            <div class="gallery">
+                <div class="main-img">
+                    <!-- icons -->
+
+                    <span class="icon-prev">
+                <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                          d="M11 1 3 9l8 8"
+                          stroke="#1D2026"
+                          stroke-width="3"
+                          fill="none"
+                          fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+                    <span class="icon-next">
+                <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                          d="m2 1 8 8-8 8"
+                          stroke="#1D2026"
+                          stroke-width="3"
+                          fill="none"
+                          fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+
+                    <!-- main images -->
+                    <img
+                            class="active"
+                            src="{{ product.image_1.url }}"
+                            alt="product-img"
+                    />
+                    {% if product.image_2 %}
+                        <img src="{{ product.image_2.url }}" alt="product-img"/>
+                    {% endif %}
+                    {% if product.image_3 %}
+                        <img src="{{ product.image_3.url }}" alt="product-img"/>
+                    {% endif %}
+                    {% if product.image_4 %}
+                        <img src="{{ product.image_4.url }}" alt="product-img"/>
+                    {% endif %}
+                </div>
+                <div class="thumb-list">
+                    <div class="active">
+                        <img
+                                src="{{ product.image_1.url }}"
+                                alt="product-img"
+                        />
+                    </div>
+                    {% if product.image_2 %}
+                        <div>
+                            <img
+                                    src="{{ product.image_2.url }}"
+                                    alt="product-img"
+                            />
+                        </div>
+                    {% endif %}
+                    {% if  product.image_3 %}
+                        <div>
+                            <img
+                                    src="{{ product.image_3.url }}"
+                                    alt="product-img"
+                            />
+                        </div>
+                    {% endif %}
+                    {% if  product.image_4 %}
+                        <div>
+                            <img
+                                    src="{{ product.image_4.url }}"
+                                    alt="product-img"
+                            />
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <h3 id="brand_name">Elben Creatives</h3>
+            <h2 class="product-name">{{ product.name }} ( {{ product.size }} )</h2>
+            <p class="product-desc">{{ product.desp|linebreaks }}
+            </p>
+
+            <div class="size_box">
+                {% if other_size %}
+                    {% for size in other_size %}
+                        <a class="size_button" href="{% url 'product' size.id %}">{{ size.size }}</a>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            {% if product.is_discount %}
+
+                <div class="price-info">
+                    <div class="price">
+                        <span class="current-price">&#8377;{{ product.discount_price }}</span>
+                        <span class="discount">-{{ discount_percentage }}%</span>
+                    </div>
+                    <div class="prev-price">&#8377;{{ product.price }}</div>
+                </div>
+            {% else %}
+                <div class="price-info">
+                    <div class="price">
+                        <span class="current-price">&#8377;{{ product.price }}</span>
+                    </div>
+                    <div class="prev-price"></div>
+
+                </div>
+            {% endif %}
+
+            <h2 id="cart_notice" style="color: orange"></h2>
+
+            <div class="add-to-cart-container" style="margin-bottom: 110px">
+                <div class="counter">
+                    <button class="minus">
+                        <svg
+                                width="12"
+                                height="4"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                        >
+                            <defs>
+                                <path
+                                        d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z"
+                                        id="a"
+                                />
+                            </defs>
+                            <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a"/>
+                        </svg>
+                    </button>
+                    <span class="count" id="product_qty">
+                        1
+                    </span>
+                    <button class="plus">
+                        <svg
+                                width="12"
+                                height="12"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                        >
+                            <defs>
+                                <path
+                                        d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z"
+                                        id="b"
+                                />
+                            </defs>
+                            <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#b"/>
+                        </svg>
+                    </button>
+                </div>
+                <button class="add-to-cart mb-5" id="add_cart" value="{{ product.id }}">
+              <span>
+                <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                          d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                          fill="#69707D"
+                          fill-rule="nonzero"
+                  />
+                </svg>
+              </span>
+                    <span>Add to cart</span>
+                </button>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+
+    var quantity = 1
+
+    $(document).on("click", ".minus", function (e) {
+        quantity--;
+        $("#product_qty").text(quantity)
+    })
+
+    $(document).on("click", ".plus", function (e) {
+        quantity++;
+        $("#product_qty").text(quantity)
+    })
+
+    $(document).on("click", "#add_cart", function (e) {
+        e.preventDefault();
+
+        let $btn = $(this);
+        let originalText = $btn.html(); // store original button content
+
+        $.ajax({
+            type: "POST",
+            url: "{% url 'add_cart' %}",
+            data: {
+                product_id: $("#add_cart").val(),
+                qty: quantity,
+                csrfmiddlewaretoken: "{{ csrf_token }}",
+                action: "post"
+            },
+            success: function (json) {
+                // show temporary success message
+                $("#cart_notice").text("Added to cart!").fadeIn().delay(1000).fadeOut();
+
+                // update button text temporarily
+                $btn.html("✔️ Added!").fadeOut(200).fadeIn(200);
+
+                setTimeout(function () {
+                    $btn.html(originalText); // revert to original
+                }, 1500);
+            },
+            error: function (xhr, errmsg, err) {
+                console.log("Error:", xhr.status, err);
+            },
+        });
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,416 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'assets/css/own_style.css' %}">
+    <style>
+
+
+        @media (max-width: 550px) {
+            .video-banner img {
+                width: 450px;
+                height: 300px;
+            }
+
+            .background {
+                background-image: url("{% static 'own_img/mini_6.jpeg' %}") !important;
+                background-position: center;
+            }
+
+            .own_size {
+                font-size: 40px !important;
+
+            }
+
+            .down_margin {
+            }
+
+            .pc {
+                display: none;
+            }
+
+            .mobile {
+                display: block !important;
+            }
+
+            .summa{
+                margin-bottom: 100px !important;
+            }
+
+            .btn-dark_1{
+                margin-bottom: 100rem !important;
+            }
+
+            .mylogo {
+                filter: invert(100%);
+            }
+
+        }
+
+        
+
+        .intro_video > .title > h3 > i {
+            color: black;
+        }
+
+        .intro_video > .content > h4 {
+            color: #265856;
+        }
+
+        #bg-red-rounded {
+            border-radius: 50px;
+            text-decoration: red underline;
+        }
+
+        #bg-green-rounded {
+            border-radius: 50px;
+            text-decoration: red underline;
+        }
+
+        .btn-dark_1:hover {
+            background-color: orange !important;
+            border: none !important;
+            border-radius: 10px;
+        }
+
+        .btn-dark_1 {
+            background-color: rgba(255, 255, 255, 0.5) !important;
+            color: grey !important;
+            border-bottom: none  !important;
+            border-top: 2px solid black !important;
+            border-right: none !important;
+            border-left: none !important;
+            border-radius: 0px !important;
+
+        }
+
+        @font-face {
+            font-family: myfont !important;
+            src: url("{% static 'fonts/RIVERFLOWS.otf' %}") format("truetype");
+        }
+
+        .own_ffont {
+            font-family: myfont !important;
+            font-weight: 10 !important;
+        }
+
+
+        .own_font_color {
+            color: #7B5B48 !important;
+        }
+
+        .intro {
+            background-color: transparent !important;
+        }
+
+        .mobile {
+            display: none;
+        }
+
+        .background {
+            background-position: ;
+        }
+
+        .own_btn {
+            text-transform: capitalize;
+            background-color: white;
+            color: #8b73ae;
+            font-weight: bold;
+            border-radius: 10px;
+            overflow: visible;
+            text-transform: uppercase;
+        }
+
+        .own_btn:hover{
+            background-color: #8b73ae;
+            color: whitesmoke;
+            border:none;
+        }
+
+        .own_size {
+            font-size: 5rem !important;
+
+        }
+
+        .own_black {
+            width: 100%;
+            height: 100px;
+            background-color: #474747;
+        }
+
+        .owl-nav {
+            display: none !important;
+        }
+
+        .margin-down{
+            margin-top: 400px !important ;
+        }
+
+        .again_down{
+            margin-top: 425px !important ;
+        }
+
+     
+
+         @media (min-width: 1190px) {
+             .own_left_margin {
+                 margin-left: 500px
+             }
+
+          
+         }
+
+        @media (min-width: 992px) {
+            .intro_video {
+                margin-top: 200px;
+            }
+        }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div class="page-wrapper">
+        <div class="background pc" style="background-image: url({% static 'own_img/test_mini.jpeg' %});">
+
+            {% include 'includes/nav.html' %}
+            <!-- End .header -->
+
+
+            <div class="slider">
+                <div class="intro">
+                    <div class="title">
+                        <h3 class="text-black-50 text-uppercase  own_font own_font_color own_left_margin">2025 Collections Discover Our Latest</h3>
+                    </div>
+                    <div class="content">
+                        <h4 class="text-black-50 text-uppercase  own_font own_font_color own_left_margin ">A Perfect Home Decor<i>
+                        </i></h4>
+                        <h4 id="intro_text" class="text-black-50 text-uppercase  own_font own_font_color own_size own_left_margin" style="">A Great Choice For Gifting </h4>
+                    </div>
+                    <div class="">
+                        <a href="{% url 'products' %}" class="btn own_btn own_left_margin">discover now</a>
+                    </div>
+                </div>
+                <!-- <img src="own_img/main.jpg"> -->
+            </div>
+        </div>
+
+        {# this is for mobile #}
+        <div class="background mobile" style="background-image: url({% static 'own_img/main_with.jpeg' %});">
+
+            {% include 'includes/nav.html' %}
+            <div class=></div>
+            <!-- End .header -->
+
+
+            <div class="slider">
+                <div class="intro">
+                    <div class="title">
+                        <br>
+                        <br>
+                        <br>
+
+                        <h3 class="text-black-50 own_font own_font_color"></h3>
+                        <br>
+                      
+                        <br>
+                        <br>
+                    </div>
+                    <div class="content">
+                        <h4 class="text-black-50 own_font own_font_color"><i>
+                        </i></h4>
+                        <h5 id="intro_text" class="text-black-50 own_font own_font_color own_size"></h5>
+                      
+
+                    </div>
+
+                </div>
+                <!-- <img src="own_img/main.jpg"> -->
+            </div>
+            <div class=" text-center">
+                <a href="{% url 'products' %}" class="btn own_btn">discover now</a>
+            </div>
+
+        </div>
+
+
+        <main class="main">
+
+
+            <section class="logos">
+
+            </section>
+            <!-- End .container -->
+
+            <section class="banners center">
+                <div class="container">
+                    <div class="row ">
+                        <div class="banner col-lg-4 col-md-6 col-sm-6">
+                            <img src="{% static 'own_img/sec_1_1.jpeg' %}" class="summa">
+                            <div class="intro">
+                                <div class="title">
+                                    <h3 class="text-dark "></h3>
+                                </div>
+                                <div class="content">
+                                    <h4 class="text-dark "><br></h4>
+                                </div>
+                                <div class="action mt-15 margin-down">
+                                    <a href="{% url 'products' %}" class="text-dark btn-dark_1 margin-down">Shop Now</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="banner percent col-lg-4 col-md-6 col-sm-6">
+                            <img src="{% static 'own_img/new/Sar 02.jpg' %}" style="" class="summa">
+                            <div class="intro">
+                                <div class="title">
+                                    <h3 class=""></h3>
+                                    <h4></h4>
+                                </div>
+                                {#                                <div class="img-percent">#}
+                                {#                                    <img src="{% static 'assets/images/demos/demo-24/banners/percent.png' %}"#}
+                                {#                                         width="190" height="75">#}
+                                {#                                </div>#}
+                                <div class="content">
+                                    <h4><br></h4>
+                                </div>
+                                <div class="action mt-15 margin-down">
+                                    <a href="{% url 'products' %}" class="text-dark mt-2 btn-dark_1 margin-down">Discover Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="banner col-lg-4  col-md-6 col-sm-6">
+                            <img src="{% static 'own_img/sec_1.jpeg' %}" class="summa">
+                            <div class="intro">
+                                {#                                <div class="title">#}
+                                {#                                    <h3 class="text-dark bg-white">Festive Offers & Discounts</h3>#}
+                                {#                                </div>#}
+                                {#                                <div class="content">#}
+                                {#                                    <h4 class="text-dark bg-white">Decor Accents <br>& Indoor Styling</h4>#}
+                                {#                                </div>#}
+                                <div class="action again_down">
+                                    <a href="{% url 'products' %}" class="text-dark btn-dark_1 again_down ">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="best-sellers">
+                <div class="container">
+                    <div class="heading">
+                        <p class="heading-cat">favourite from every category</p>
+                        <h3 class="heading-title">Best Sellers</h3>
+                    </div>
+                    <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow text-center"
+                         data-toggle="owl" data-owl-options='{
+                        "nav": true, 
+                        "dots": false,
+                        "margin": 30,
+                        "loop": false,
+                        "responsive": {
+                            "0": {
+                                "items":2
+                            },
+                            "768": {
+                            	"items":3
+                            },
+                            "992": {
+                                "items":3
+                            },
+                            "1200": {
+                            	"items":4
+                            }
+                        }
+                    }'>
+                        {% for product in best_products %}
+                            <div class="product product-10 text-center">
+
+                                <figure class="product-media">
+                                    <a href="{% url 'product' product.id %}">
+                                        <img src="{{ product.image_1.url }}" alt="Product image" class="product-image">
+                                        <img src="{{ product.image_1.url }}" alt="Product image"
+                                             class="product-image-hover">
+                                    </a>
+
+
+                                    <!-- End .product-action-vertical -->
+                                </figure>
+                                <!-- End .product-media -->
+
+                                <div class="product-body">
+
+                                    <div class="product-action">
+                                        <a href="{% url 'product' product.id %}"
+                                           class="btn-cart"><span>add to cart</span></a>
+                                    </div>
+                                    <!-- End .product-action -->
+                                    <div class="product-intro">
+                                        <h3 class="product-title">
+                                            <a href="{% url 'product' product.id %}">{{ product.name }}</a>
+                                        </h3>
+                                        <!-- End .product-title -->
+
+                                        {% if product.is_discount %}
+                                            <div class="product-price">
+                                                <span class="new-price"> &#8377;{{ product.discount_price }}</span>
+                                                <span class="old-price"> &#8377;{{ product.price }}</span>
+                                            </div>
+                                        {% else %}
+                                            <div class="product-price">
+                                                <span class="new-price"> &#8377;{{ product.price }}</span>
+
+                                            </div>
+                                        {% endif %}
+
+                                        <!-- End .product-price -->
+                                    </div>
+
+
+                                </div>
+                                <!-- End .product-body -->
+                            </div>
+                        {% endfor %}
+                        <!-- End .product -->
+
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="banners stretch mt-2">
+
+            </section>
+
+
+            <section class="video-banner">
+                <img src="{% static 'own_img/video_img.jpeg' %}" alt="">
+
+                <div class="intro video intro_video">
+                    <div class="title">
+                        <h3 class="own_font">
+                            <i></i>
+                        </h3>
+                    </div>
+                    <div class="content">
+                        <h4 class="own_font"></h4>
+                    </div>
+                    <div class="action">
+                        <!-- <a href="" class="btn-iframe"><i class="icon-play"></i></a> -->
+                    </div>
+                </div>
+            </section>
+
+
+        </main>
+
+        <div class="own_black">
+
+        </div>
+
+
+
+{% endblock %}

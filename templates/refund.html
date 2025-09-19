@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block head %}
+   <style>
+        body { font-family: Arial, sans-serif; margin: 32px; background: #f7f7fa; color: #222; }
+        h1 { color: #2d3e50; }
+        h2 { color: #34495e; margin-top: 2em; }
+        ul, ol { margin-left: 1.5em; }
+        .section { margin-bottom: 2em; }
+        .highlight { background: #f2f6fc; padding: 10px 18px; border-left: 4px solid #4a90e2; margin: 1em 0; }
+        .small { font-size: 0.97em; color: #555; }
+
+        .margin{
+            margin-bottom: 15rem;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    {% include 'includes/nav.html' %}
+    <h1>Refund and Cancellation Policy</h1>
+    <div class="section">
+        <p>
+            This refund and cancellation policy outlines how you can cancel or seek a refund for a product or service that you have purchased through the Platform. Under this policy:
+        </p>
+        <ul>
+            <li>
+                <strong>Cancellations:</strong> Cancellations will only be considered if the request is made within <strong>5 days</strong> of placing the order. However, cancellation requests may not be entertained if the orders have already been communicated to sellers/merchant(s) listed on the Platform and they have initiated the process of shipping, or the product is out for delivery. In such an event, you may choose to reject the product at the doorstep.
+            </li>
+            <li>
+                <strong>Perishable Items:</strong> elbencs does not accept cancellation requests for perishable items like flowers, eatables, etc. However, a refund or replacement can be made if the user establishes that the quality of the product delivered is not good.
+            </li>
+            <li>
+                <strong>Damaged or Defective Items:</strong> In case of receipt of damaged or defective items, please report to our customer service team. The request will be entertained once the seller/merchant listed on the Platform has checked and determined the same at its end. This should be reported within <strong>5 days</strong> of receipt of products.
+            </li>
+            <li>
+                <strong>Product Not as Expected:</strong> If you feel that the product received is not as shown on the site or as per your expectations, you must bring it to the notice of our customer service within <strong>5 days</strong> of receiving the product. The customer service team, after looking into your complaint, will take an appropriate decision.
+            </li>
+            <li>
+                <strong>Manufacturer Warranty:</strong> For products that come with a warranty from the manufacturers, please refer the issue directly to them.
+            </li>
+            <li>
+                <strong>Refund Processing:</strong> In case of any refunds approved by elbencs, it will take <strong>7 days</strong> for the refund to be processed to you.
+            </li>
+        </ul>
+    </div>
+
+    <div class="margin"></div>
+
+
+{% endblock %}

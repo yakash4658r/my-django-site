@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="page-wrapper">
+
+
+        {% include 'includes/nav.html' %}        <!-- End .header -->
+
+        <main class="main">
+            <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'products' %}">Shop</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">About us</li>
+                    </ol>
+                </div>
+                <!-- End .container -->
+            </nav>
+            <!-- End .breadcrumb-nav -->
+            <div class="container">
+                <div class="page-header page-header-big text-center" style="background-image: url({% static 'own_img/other.jpeg' %})">
+                    <h1 class="page-title text-white">About us<span class="text-white">Who we are</span></h1>
+                </div>
+                <!-- End .page-header -->
+            </div>
+            <!-- End .container -->
+
+            <div class="page-content pb-0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 mb-3 mb-lg-0">
+                            <h2 class="title">Our Vision</h2>
+                            <!-- End .title -->
+                            <p>At Elben Creatives, our vision is to become a leading name in home aesthetics by bringing timeless design and personalized expression into every household. We strive to inspire people to turn their spaces into reflections of
+                                who they are – with elegant photo frames, art, and decor that tell their unique stories. </p>
+                        </div>
+                        <!-- End .col-lg-6 -->
+
+                        <div class="col-lg-6">
+                            <h2 class="title">Our Mission</h2>
+                            <!-- End .title -->
+                            <p>Our mission is to craft high-quality, stylish, and affordable home decor products that spark joy and creativity. We are committed to combining traditional craftsmanship with modern design, ensuring each piece adds warmth, character,
+                                and beauty to your living spaces. Through innovation and customer-centric service, we aim to make every home a gallery of cherished memories.
+
+                            </p>
+                        </div>
+                        <!-- End .col-lg-6 -->
+                    </div>
+                    <!-- End .row -->
+
+                    <div class="mb-5"></div>
+                    <!-- End .mb-4 -->
+                </div>
+                <!-- End .container -->
+
+                <div class="bg-light-2 pt-6 pb-5 mb-6 mb-lg-8">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-5 mb-3 mb-lg-0">
+                                <h2 class="title">Who We Are</h2>
+                                <!-- End .title -->
+                                <p class="lead text-primary mb-3">At Elben Creatives, we turn spaces into stories. We are a passionate team of designers and artisans dedicated to creating high-quality photo frames and home decor pieces that reflect personality, warmth, and style.</p>
+                                <!-- End .lead text-primary -->
+                                <p class="mb-2">ach product is thoughtfully designed to blend tradition with modern aesthetics—perfect for adding charm to your living room, office, or gifting to someone special. Whether it's a timeless wooden frame or a trendy wall accent,
+                                    we believe in celebrating the little details that make a house feel like home.</p>
+
+                                
+                            </div>
+                            <!-- End .col-lg-5 -->
+
+                            <div class="col-lg-6 offset-lg-1">
+                                <div class="about-images">
+                                    <img src="{% static 'own_img/main/main-sm-2.jpeg' %}" alt="" class="about-img-front">
+                                    <img src="{% static 'own_img/main/main-sm.jpeg' %}" alt="" class="about-img-back">
+                                </div>
+                                <!-- End .about-images -->
+                            </div>
+                            <!-- End .col-lg-6 -->
+                        </div>
+                        <!-- End .row -->
+                    </div>
+                    <!-- End .container -->
+                </div>
+                <!-- End .bg-light-2 pt-6 pb-6 -->
+
+
+                <!-- End .container -->
+
+                <div class="mb-2"></div>
+                <!-- End .mb-2 -->
+
+                <div class="about-testimonials bg-light-2 pt-6 pb-6">
+                    <div class="container">
+                        <h2 class="title text-center mb-3">What Customer Say About Us</h2>
+                        <!-- End .title text-center -->
+
+                        <div class="owl-carousel owl-simple owl-testimonials-photo" data-toggle="owl" data-owl-options='{
+                                "nav": false, 
+                                "dots": true,
+                                "margin": 20,
+                                "loop": false,
+                                "responsive": {
+                                    "1200": {
+                                        "nav": true
+                                    }
+                                }
+                            }'>
+                            <blockquote class="testimonial text-center">
+                                <img src="{% static 'assets/images/testimonials/user-1.jpg' %}" alt="user">
+                                <p>Absolutely loved the handcrafted photo frames! They added such a warm, personal touch to my home. The quality is outstanding and delivery was super quick.</p>
+                                <cite>
+                                    Jenson Gregory
+                                    <span>Customer</span>
+                                </cite>
+                            </blockquote>
+                            <!-- End .testimonial -->
+
+                            <blockquote class="testimonial text-center">
+                                <img src="{% static 'assets/images/testimonials/user-2.jpg' %}" alt="user">
+                                <p>I gifted a custom frame to my friend and she loved it. The craftsmanship is amazing and customer service was very responsive.</p>
+
+                                <cite>
+                                    Victoria Ventura
+                                    <span>Customer</span>
+                                </cite>
+                            </blockquote>
+                            <!-- End .testimonial -->
+                        </div>
+                        <!-- End .testimonials-slider owl-carousel -->
+                    </div>
+                    <!-- End .container -->
+                </div>
+                <!-- End .bg-light-2 pt-5 pb-6 -->
+            </div>
+            <!-- End .page-content -->
+        </main>
+        <!-- End .main -->
+{% endblock %}

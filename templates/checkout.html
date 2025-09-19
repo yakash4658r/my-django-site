@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block head %}
+{% load custom_tags %}
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="page-wrapper">
+
+        {% include "includes/nav.html" %}
+
+
+        <main class="main">
+
+            <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+                <div class="container">
+                    <h1 class="page-title">Checkout<span>Shop</span></h1>
+                </div><!-- End .container -->
+            </div><!-- End .page-header -->
+            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                    </ol>
+                </div><!-- End .container -->
+            </nav><!-- End .breadcrumb-nav -->
+
+            <div class="page-content">
+                <div class="checkout">
+                    <div class="container">
+
+
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-9">
+
+                                    <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
+                                    {{ form|crispy }}
+
+                                    <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+                                        <span class="btn-text">Place Order</span>
+                                        <span class="btn-hover-text">Proceed to Checkout</span>
+                                    </button>
+                                </div><!-- End .col-lg-9 -->
+
+                        </form>
+
+
+                        <aside class="col-lg-3">
+                            <div class="summary">
+                                <h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
+
+                                <table class="table table-summary">
+                                    <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Total</th>
+                                    </tr>
+                                    </thead>
+
+                                    {% for product,qty in products.items %}
+
+                                        <tbody>
+                                        <tr class="mb-3">
+                                            <td class="mb-3"><a href="{% url 'product' product.id %}">{{ product.name }}</a></td>
+                                            {% if product.is_discount %}
+                                                <td>&#8377;{{ product.discount_price|multiply:qty }}</td>
+                                            {% else %}
+                                                <td>&#8377;{{ product.price|multiply:qty }}</td>
+                                            {% endif %}
+                                        </tr>
+
+                                        {% endfor %}
+                                        <tr class="summary-subtotal">
+                                            <td>Subtotal:</td>
+                                            <td>${{ cart.total }}</td>
+                                        </tr><!-- End .summary-subtotal -->
+                                        <tr>
+                                            <td>Shipping:</td>
+                                            <td>&#8377;100</td>
+                                        </tr>
+                                        <tr class="summary-total">
+                                            <td>Total:</td>
+                                            <td>&#8377;{{ cart.total|add_total }}</td>
+                                        </tr><!-- End .summary-total -->
+                                        </tbody>
+                                        </table><!-- End .table table-summary -->
+
+
+
+                            </div><!-- End .summary -->
+                        </aside><!-- End .col-lg-3 -->
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .checkout -->
+    </div><!-- End .page-content -->
+    </main><!-- End .main -->
+
+{% endblock %}
+

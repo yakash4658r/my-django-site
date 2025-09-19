@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_tags %}
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="page-wrapper">
+
+        {% include 'includes/nav.html' %}
+        <!-- End .header -->
+
+        <main class="main">
+            <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+                <div class="container">
+                    <h1 class="page-title">Shopping Cart<span>Shop</span></h1>
+                </div><!-- End .container -->
+            </div><!-- End .page-header -->
+            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+                    </ol>
+                </div><!-- End .container -->
+            </nav><!-- End .breadcrumb-nav -->
+
+            <div class="page-content">
+                <div class="cart">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-9">
+
+
+                                <table class="table table-cart table-mobile">
+                                    <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th></th>
+                                        <th>Update</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    {% for product,qty in all_products.items %}
+                                        <tr>
+                                            <td class="product-col">
+                                                <div class="product">
+                                                    <figure class="product-media">
+                                                        <a href="#">
+                                                            <img src="{{ product.image_1.url }}"
+                                                                 alt="Product image">
+                                                        </a>
+                                                    </figure>
+
+                                                    <h3 class="product-title">
+                                                        <a href="{% url 'product' product.id %}">{{ product.name }} ( {{ product.size }} )</a>
+                                                    </h3><!-- End .product-title -->
+                                                </div><!-- End .product -->
+                                            </td>
+                                            {% if product.is_discount %}
+
+                                                <td class="price-col">${{ product.discount_price }}</td>
+                                            {% else %}
+                                                <td class="price-col">${{ product.price }}</td>
+
+                                            {% endif %}
+
+                                            <td class="quantity-col">
+                                                <div class="cart-product-quantity">
+                                                    <input type="number" class="form-control update_qty"
+                                                           value="{{ qty }}" min="1"
+                                                           max="10"
+                                                           step="1" data-decimals="0" id="" required>
+                                                </div><!-- End .cart-product-quantity -->
+                                            </td>
+
+                                            <td class="remove-col">
+                                                {% if product.is_discount %}
+                                                    <td class="total-col">{{ product.discount_price|multiply:qty }}</td>
+                                                {% else %}
+                                                    <td class="total-col">{{ product.price|multiply:qty }}</td>
+                                                {% endif %}
+                                            <button class="btn-remove"><i class="icon-close"></i></button>
+                                            </td>
+
+                                            <td>
+                                                <button href="#" class="btn btn-outline-dark-2 update_cart"
+                                                        id="{{ product.id }}"><span>UPDATE CART</span><i
+                                                        class="icon-refresh"></i></button>
+
+                                                <button class="btn btn-outline-danger delete-item delete_cart mt-1"
+                                                        id="{{ product.id }}">
+                                                    <span>Delete Item</span>
+                                                    <i class="fas fa-trash-alt"></i>  <!-- Font Awesome trash icon -->
+                                                </button>
+
+                                            </td>
+
+                                        </tr>
+                                    {% endfor %}
+
+
+                                    </tbody>
+                                </table><!-- End .table table-wishlist -->
+
+                                <div class="cart-bottom">
+                                    <div class="cart-discount">
+                                        <form action="#">
+                                            <div class="">
+
+                                            </div><!-- End .input-group -->
+                                        </form>
+                                    </div><!-- End .cart-discount -->
+
+
+                                </div><!-- End .cart-bottom -->
+                            </div><!-- End .col-lg-9 -->
+
+
+                            <aside class="col-lg-3">
+                                <div class="summary summary-cart">
+                                    <h3 class="summary-title">Cart Total</h3><!-- End .summary-title -->
+
+                                    <table class="table table-summary">
+                                        <tbody>
+                                        <tr class="summary-subtotal">
+                                            <td>Subtotal:</td>
+                                            <td>&#8377;{{ total }}</td>
+                                        </tr><!-- End .summary-subtotal -->
+                                        <tr class="summary-shipping">
+                                            <td>Shipping:</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+
+                                        <tr class="summary-shipping-row">
+                                            <td>
+                                                <div class="custom-control custom-radio">
+                                                    <p  id="free-shipping"
+                                                       class="font-weight-bold text-black" >Shipping Charge</p>
+
+                                                </div><!-- End .custom-control -->
+                                            </td>
+                                            <td>&#8377;100</td>
+                                        </tr><!-- End .summary-shipping-row -->
+
+
+
+                                        <tr class="summary-shipping-estimate">
+
+                                            <td>&nbsp;</td>
+                                        </tr><!-- End .summary-shipping-estimate -->
+
+                                        <tr class="summary-total">
+                                            <td>Total:</td>
+                                            <td>{{ total|add_total }}</td>
+                                        </tr><!-- End .summary-total -->
+                                        </tbody>
+                                    </table><!-- End .table table-summary -->
+                                    {% if cart.products %}
+                                    <a href="{% url 'checkout' %}" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED
+                                        TO
+                                        CHECKOUT</a>
+                                </div><!-- End .summary -->
+                                {% endif %}
+
+                                <a href="{% url 'products' %}" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i
+                                        class="icon-refresh"></i></a>
+                            </aside><!-- End .col-lg-3 -->
+                        </div><!-- End .row -->
+                    </div><!-- End .container -->
+                </div><!-- End .cart -->
+            </div><!-- End .page-content -->
+        </main><!-- End .main -->
+
+    </div>
+    <script>
+        $(document).on("click", ".update_cart", function (e) {
+            e.preventDefault();
+
+            const button = $(this);
+            const qty = button.closest("tr").find(".update_qty").val();
+            let product_id = $(this).attr("id")
+            $.ajax({
+                type: "POST",
+                url: "{% url 'cart_update' %}",
+                data: {
+                    product_id: product_id,
+                    qty: qty,
+                    csrfmiddlewaretoken: "{{ csrf_token }}",
+                    action: "post",
+                },
+
+                success: function (json) {
+                    location.reload()
+                },
+
+                error: function (xhr, errmsg, err) {
+                    console.log("Error:", xhr.status, err);
+
+                }
+            })
+
+        })
+
+
+    </script>
+{% endblock %}

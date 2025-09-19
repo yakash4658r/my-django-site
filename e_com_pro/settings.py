@@ -34,7 +34,8 @@ if os.environ.get("ENVIRONMENT") == "production":
     CSRF_TRUSTED_ORIGINS = ["https://ecommerce-production-30e6.up.railway.app","https://elbencs.com","https://www.elbencs.com","https://ecommerce-production-0956.up.railway.app"]
     DEBUG = False
 else:
-    ALLOWED_HOSTS = ["*"]
+    ALLOWED_HOSTS = ['my-django-site-no3b.onrender.com']
+
 
 
 # Application definition

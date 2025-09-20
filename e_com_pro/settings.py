@@ -167,12 +167,11 @@ WSGI_APPLICATION = 'e_com_pro.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3',   # fallback local sqlite
+        default='sqlite:///db.sqlite3',   # fallback for local
         conn_max_age=600,
         ssl_require=False
     )
 }
-
 
 
 
